@@ -1,17 +1,13 @@
 import Vue from 'vue'
 import {createInertiaApp} from '@inertiajs/inertia-vue'
 // @ts-ignore
-import {Ziggy} from '@/js/ziggy';
+import {Ziggy} from "@/js/ziggy.js";
 // @ts-ignore
-import route from 'ziggy';
+import {ZiggyVue} from "ziggy-js/dist/vue";
 
 Vue.config.productionTip = true;
 
-Vue.mixin({
-    methods: {
-        route: (name: string, params: any, absolute: any, config = Ziggy) => route(name, params, absolute, Ziggy),
-    },
-});
+Vue.use(ZiggyVue, Ziggy);
 
 const pages: any = import.meta.glob(`../views/pages/**/*.vue`);
 
